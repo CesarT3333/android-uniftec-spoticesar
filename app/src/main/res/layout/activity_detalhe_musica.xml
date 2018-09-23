@@ -1,9 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.DetalheMusicaActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <ImageView
+        android:id="@+id/musica_image_src"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        android:padding="5dp"
+        app:srcCompat="@mipmap/ic_launcher" />
+
+    <!-- ==================== -->
+
+    <TextView
+        android:id="@+id/txtv_musica_nome_musica"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/musica_image_src"
+        android:layout_margin="10dp"
+        android:text="Nome: " />
+
+    <TextView
+        android:id="@+id/txtv_musica_nome_musica_imp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/musica_image_src"
+        android:layout_margin="10dp"
+        android:layout_toRightOf="@id/txtv_musica_nome_musica" />
+
+    <!-- ==================== -->
+
+    <TextView
+        android:id="@+id/txtv_musica_duracao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtv_musica_nome_musica"
+        android:layout_margin="10dp"
+        android:text="Duração: " />
+
+    <TextView
+        android:id="@+id/txtv_musica_duracao_imp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtv_musica_nome_musica_imp"
+        android:layout_margin="10dp"
+        android:layout_toRightOf="@id/txtv_musica_duracao"
+        android:text="03:23" />
+
+    <!-- ==================== -->
+
+    <TextView
+        android:id="@+id/txtv_musica_nome_artista"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtv_musica_duracao"
+        android:layout_margin="10dp"
+        android:text="Artista: " />
+
+    <TextView
+        android:id="@+id/txtv_musica_nome_artista_imp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtv_musica_duracao_imp"
+        android:layout_margin="10dp"
+        android:layout_toRightOf="@id/txtv_musica_nome_artista" />
+
+    <!-- ==================== -->
+
+    <Button
+        android:layout_below="@+id/txtv_musica_nome_artista"
+        android:id="@+id/novo_aluno"
+        android:layout_width="56dp"
+        android:layout_marginTop="30dp"
+        android:layout_height="56dp"
+        android:text=">"
+        android:textColor="#fff"
+        android:textSize="40sp"
+        android:layout_centerHorizontal="true"
+        android:elevation="6dp"
+        android:background="@drawable/player_button"
+        android:stateListAnimator="@null"/>
+
+</RelativeLayout>
