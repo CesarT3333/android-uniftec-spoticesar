@@ -21,10 +21,10 @@ public class Mock {
 
     public static final List<Album> mockAlbuns =
             new ArrayList<>(Arrays.asList(
-                    new Album("Album 1", Mock.mockArtistas.get(0)),
-                    new Album("Album 2", Mock.mockArtistas.get(3)),
-                    new Album("Album 3", Mock.mockArtistas.get(2)),
-                    new Album("Album 4", Mock.mockArtistas.get(1))
+                    new Album(1, "Album 1", Mock.mockArtistas.get(0)),
+                    new Album(2, "Album 2", Mock.mockArtistas.get(3)),
+                    new Album(3, "Album 3", Mock.mockArtistas.get(2)),
+                    new Album(4, "Album 4", Mock.mockArtistas.get(1))
             ));
 
     public static final List<Musica> mockMusicas = new ArrayList<>(Arrays.asList(
@@ -37,8 +37,29 @@ public class Mock {
             new Musica("Musica 3", Calendar.getInstance(),
                     Mock.mockArtistas.get(1), Mock.mockAlbuns.get(0)),
 
-            new Musica("Musica 4", Calendar.getInstance(),
-                    Mock.mockArtistas.get(0), Mock.mockAlbuns.get(1))
+            new Musica("Musica 5", Calendar.getInstance(),
+                    Mock.mockArtistas.get(0), Mock.mockAlbuns.get(1)),
+
+            new Musica("Musica 6", Calendar.getInstance(),
+                    Mock.mockArtistas.get(2), Mock.mockAlbuns.get(2)),
+
+            new Musica("Musica 7", Calendar.getInstance(),
+                    Mock.mockArtistas.get(1), Mock.mockAlbuns.get(1)),
+
+            new Musica("Musica 8", Calendar.getInstance(),
+                    Mock.mockArtistas.get(3), Mock.mockAlbuns.get(1)),
+
+            new Musica("Musica 9", Calendar.getInstance(),
+                    Mock.mockArtistas.get(1), Mock.mockAlbuns.get(3)),
+
+            new Musica("Musica 10", Calendar.getInstance(),
+                    Mock.mockArtistas.get(0), Mock.mockAlbuns.get(0)),
+
+            new Musica("Musica 11", Calendar.getInstance(),
+                    Mock.mockArtistas.get(3), Mock.mockAlbuns.get(0)),
+
+            new Musica("Musica 12", Calendar.getInstance(),
+                    Mock.mockArtistas.get(2), Mock.mockAlbuns.get(1))
     ));
 
 }

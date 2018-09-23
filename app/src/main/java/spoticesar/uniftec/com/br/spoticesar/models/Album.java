@@ -7,13 +7,16 @@ import spoticesar.uniftec.com.br.spoticesar.generics.GenericEntity;
 public class Album
         extends GenericEntity {
 
+    private Integer id;
+
     private String nome;
 
     private List<Musica> musicas;
 
     private Artista artista;
 
-    public Album(String nome, Artista artista) {
+    public Album(Integer id, String nome, Artista artista) {
+        this.id = id;
         this.nome = nome;
         this.artista = artista;
     }
@@ -45,5 +48,13 @@ public class Album
 
     public void setArtista(Artista artista) {
         this.artista = artista;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 }
