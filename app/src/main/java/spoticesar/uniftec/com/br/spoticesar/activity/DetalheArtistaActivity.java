@@ -16,7 +16,8 @@ import spoticesar.uniftec.com.br.spoticesar.models.Album;
 import spoticesar.uniftec.com.br.spoticesar.models.Artista;
 import spoticesar.uniftec.com.br.spoticesar.models.Musica;
 
-public class DetalheArtistaActivity extends AppCompatActivity {
+public class DetalheArtistaActivity
+        extends AppCompatActivity {
 
     // ==========================
 

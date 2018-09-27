@@ -6,6 +6,12 @@ public class Telefone {
     private String telefone;
     private String endereco;
 
+    public Telefone(String nome, String telefone, String endereco) {
+        this.nome = nome;
+        this.telefone = telefone;
+        this.endereco = endereco;
+    }
+
     public String getNome() {
         return nome;
     }

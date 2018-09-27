@@ -17,7 +17,12 @@ import spoticesar.uniftec.com.br.spoticesar.models.Telefone;
 public class ListaTelefoneAdapter
         extends RecyclerView.Adapter<ListaTelefoneAdapter.ItemViewHolder> {
 
-    private List<Telefone> telefones = new ArrayList<>();
+    private List<Telefone> telefones =
+            new ArrayList<>();
+
+    public ListaTelefoneAdapter(List<Telefone> telefones) {
+        this.telefones = telefones;
+    }
 
     @NonNull
     @Override
