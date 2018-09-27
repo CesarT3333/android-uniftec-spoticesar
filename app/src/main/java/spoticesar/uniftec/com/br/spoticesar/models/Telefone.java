@@ -1,6 +1,6 @@
 package spoticesar.uniftec.com.br.spoticesar.models;
 
-public class Tarefa {
+public class Telefone {
 
     private String nome;
     private String telefone;
