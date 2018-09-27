@@ -24,7 +24,8 @@
         <activity android:name=".activity.BuscarMusicaActivity" />
         <activity android:name=".activity.DetalheMusicaActivity" />
         <activity android:name=".activity.DetalheArtistaActivity" />
-        <activity android:name=".activity.DetalheAlbumActivity"></activity>
+        <activity android:name=".activity.DetalheAlbumActivity" />
+        <activity android:name=".activity.AgendaTelefonicaActivity"></activity>
     </application>
 
 </manifest>

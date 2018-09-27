@@ -46,8 +46,8 @@ public class ImageListViewAdapter extends ArrayAdapter<String> {
             convertView = mInflater
                     .inflate(R.layout.entity_menu_item, parent, false);
 
-            imageViewHolder.imageId =
-                    convertView.findViewById(R.id.image_src);
+//            imageViewHolder.imageId =
+//                    convertView.findViewById(R.id.image_src);
 
             imageViewHolder.entityToString =
                     convertView.findViewById(R.id.entity_to_string);
