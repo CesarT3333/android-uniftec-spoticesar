@@ -72,18 +72,54 @@
 
     <!-- ==================== -->
 
-    <Button
+    <TextView
+        android:id="@+id/txtv_musica_data_lancamento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/txtv_musica_nome_artista"
-        android:id="@+id/novo_aluno"
+        android:layout_margin="10dp"
+        android:text="Data de Lançamento: " />
+
+    <TextView
+        android:id="@+id/txtv_musica_data_lancamento_imp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtv_musica_nome_artista_imp"
+        android:layout_margin="10dp"
+        android:text="12/12/2012"
+        android:layout_toRightOf="@id/txtv_musica_data_lancamento" />
+
+    <!-- ==================== -->
+
+    <Button
+        android:id="@+id/play"
         android:layout_width="56dp"
-        android:layout_marginTop="30dp"
         android:layout_height="56dp"
-        android:text=">"
-        android:textColor="#fff"
-        android:textSize="40sp"
+        android:layout_below="@+id/txtv_musica_data_lancamento"
         android:layout_centerHorizontal="true"
-        android:elevation="6dp"
+        android:layout_marginTop="30dp"
         android:background="@drawable/player_button"
-        android:stateListAnimator="@null"/>
+        android:elevation="6dp"
+        android:stateListAnimator="@null"
+        android:drawableRight="@android:drawable/ic_media_play"
+        android:textColor="#fff"
+        android:textSize="40sp" />
+
+    <Button
+        android:id="@+id/pause"
+        android:layout_width="56dp"
+        android:layout_toLeftOf="@+id/play"
+        android:layout_height="56dp"
+        android:layout_below="@+id/txtv_musica_data_lancamento"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/player_button"
+        android:elevation="6dp"
+        android:drawableRight="@android:drawable/ic_media_pause"
+        android:stateListAnimator="@null"
+        android:textColor="#fff"
+        android:textSize="40sp" />
+
+
 
 </RelativeLayout>

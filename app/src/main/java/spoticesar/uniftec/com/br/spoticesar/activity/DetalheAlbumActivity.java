@@ -95,9 +95,6 @@ public class DetalheAlbumActivity
         for (Musica m : Mock.mockMusicas)
             nomesDasMusicas.add(m.getNome());
 
-        for (String s : nomesDasMusicas)
-            System.out.println(s);
-
         return nomesDasMusicas;
 
     }
