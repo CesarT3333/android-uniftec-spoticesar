@@ -14,7 +14,8 @@ import java.util.List;
 import spoticesar.uniftec.com.br.spoticesar.R;
 import spoticesar.uniftec.com.br.spoticesar.generics.GenericEntity;
 
-public class ImageListViewAdapter extends ArrayAdapter<String> {
+public class ImageListViewAdapter
+        extends ArrayAdapter<String> {
 
     Context mContext;
     List<GenericEntity> entitys;
