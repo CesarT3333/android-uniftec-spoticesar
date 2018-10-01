@@ -3,6 +3,8 @@ package spoticesar.uniftec.com.br.spoticesar.activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -12,13 +14,14 @@ import java.util.List;
 
 import spoticesar.uniftec.com.br.spoticesar.R;
 import spoticesar.uniftec.com.br.spoticesar.adapter.ImageListViewAdapter;
+import spoticesar.uniftec.com.br.spoticesar.adapter.ImageRecyclerViewAdapter;
 import spoticesar.uniftec.com.br.spoticesar.constants.Mock;
 import spoticesar.uniftec.com.br.spoticesar.generics.GenericEntity;
+import spoticesar.uniftec.com.br.spoticesar.models.Album;
 import spoticesar.uniftec.com.br.spoticesar.models.Artista;
 
 public class BuscarArtistaActivity
-        extends AppCompatActivity
-        implements AdapterView.OnItemClickListener {
+        extends AppCompatActivity {
 
     private List<Artista> artistas = new ArrayList<>();
 
@@ -28,30 +31,24 @@ public class BuscarArtistaActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buscar_artista);
 
-        List<GenericEntity> albuns = new ArrayList<>();
+        RecyclerView listaAlbunsRecyclerView =
+                this.findViewById(R.id.artista_recycler_view);
 
         this.artistas = Mock.mockArtistas;
-        albuns.addAll(this.artistas);
 
-        ImageListViewAdapter imageListViewAdapter =
-                new ImageListViewAdapter(BuscarArtistaActivity.this, albuns);
+        LinearLayoutManager layoutManager =
+                new LinearLayoutManager(this);
 
-        ListView artistaListView = this.findViewById(R.id.artista_list_view);
+        ImageRecyclerViewAdapter imageRecyclerViewAdapter =
+                new ImageRecyclerViewAdapter<Artista>(
+                        this,
+                        this.artistas,
+                        DetalheArtistaActivity.ARTISTA_PARAM,
+                        DetalheArtistaActivity.class
+                );
 
-        artistaListView.setAdapter(imageListViewAdapter);
-        artistaListView.setOnItemClickListener(this);
-
-    }
-
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-        Intent intent = new Intent(this, DetalheArtistaActivity.class);
-
-        intent.putExtra(DetalheArtistaActivity.ARTISTA_PARAM,
-                this.artistas.get(position));
-
-        startActivity(intent);
+        listaAlbunsRecyclerView.setLayoutManager(layoutManager);
+        listaAlbunsRecyclerView.setAdapter(imageRecyclerViewAdapter);
 
     }
 

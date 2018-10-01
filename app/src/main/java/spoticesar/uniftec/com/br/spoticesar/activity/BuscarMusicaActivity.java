@@ -3,6 +3,8 @@ package spoticesar.uniftec.com.br.spoticesar.activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -12,13 +14,14 @@ import java.util.List;
 
 import spoticesar.uniftec.com.br.spoticesar.R;
 import spoticesar.uniftec.com.br.spoticesar.adapter.ImageListViewAdapter;
+import spoticesar.uniftec.com.br.spoticesar.adapter.ImageRecyclerViewAdapter;
 import spoticesar.uniftec.com.br.spoticesar.constants.Mock;
 import spoticesar.uniftec.com.br.spoticesar.generics.GenericEntity;
+import spoticesar.uniftec.com.br.spoticesar.models.Album;
 import spoticesar.uniftec.com.br.spoticesar.models.Musica;
 
 public class BuscarMusicaActivity
-        extends AppCompatActivity
-        implements AdapterView.OnItemClickListener {
+        extends AppCompatActivity {
 
     private List<Musica> musicas = new ArrayList<>();
 
@@ -27,33 +30,24 @@ public class BuscarMusicaActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buscar_musica);
 
-        List<GenericEntity> albuns = new ArrayList<>();
+        RecyclerView listaAlbunsRecyclerView =
+                this.findViewById(R.id.musica_recycler_view);
 
         this.musicas = Mock.mockMusicas;
 
-        albuns.addAll(this.musicas);
+        LinearLayoutManager layoutManager =
+                new LinearLayoutManager(this);
 
-        ImageListViewAdapter imageListViewAdapter =
-                new ImageListViewAdapter(BuscarMusicaActivity.this, albuns);
+        ImageRecyclerViewAdapter imageRecyclerViewAdapter =
+                new ImageRecyclerViewAdapter<Musica>(
+                        this,
+                        this.musicas,
+                        DetalheMusicaActivity.MUSICA_PARAM,
+                        DetalheMusicaActivity.class
+                );
 
-        ListView musicaListView = this.findViewById(R.id.musica_list_view);
-
-        musicaListView.setOnItemClickListener(this);
-
-        musicaListView.setAdapter(imageListViewAdapter);
-
-    }
-
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-        Intent intent = new Intent(this, DetalheMusicaActivity.class);
-
-        Musica m = this.musicas.get(position);
-
-        intent.putExtra(DetalheMusicaActivity.MUSICA_PARAM, m);
-
-        startActivity(intent);
+        listaAlbunsRecyclerView.setLayoutManager(layoutManager);
+        listaAlbunsRecyclerView.setAdapter(imageRecyclerViewAdapter);
 
     }
 

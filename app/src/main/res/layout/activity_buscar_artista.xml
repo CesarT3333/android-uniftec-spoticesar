@@ -29,13 +29,11 @@
 
     </LinearLayout>
 
-    <ListView
-        android:layout_marginTop="20dp"
-        android:id="@+id/artista_list_view"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/artista_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-    </ListView>
+        android:layout_marginTop="20dp"
+        tools:listitem="@layout/entity_menu_item" />
 
 </LinearLayout>
