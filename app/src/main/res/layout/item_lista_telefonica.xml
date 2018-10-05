@@ -3,17 +3,60 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="16dp">
+
     <TextView
-        android:id="@+id/nome_tarefa_text_view"
+        android:id="@+id/txt_nome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="nome tarefa"
+        android:text="nome:"
         android:textSize="16dp" />
+
     <TextView
-        android:id="@+id/tarefa_concluida_text_view"
+        android:id="@+id/txt_nome_impl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@id/nome_tarefa_text_view"
-        android:text="tarefa concluida" />
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/txt_nome"
+        android:textSize="16dp" />
+
+    <!-- ================ -->
+
+    <TextView
+        android:id="@+id/txt_endereco"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_nome"
+        android:text="Endereço:"
+        android:textSize="16dp" />
+
+    <TextView
+        android:id="@+id/txt_endereco_imp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@id/txt_nome_impl"
+        android:layout_toRightOf="@id/txt_endereco"
+        android:textSize="16dp" />
+
+    <!-- ================ -->
+
+    <TextView
+        android:id="@+id/txt_telefone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_endereco"
+        android:text="Telefone:"
+        android:textSize="16dp" />
+
+    <TextView
+        android:id="@+id/txt_telefone_impl"
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/txt_endereco_imp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/txt_telefone"
+        android:textSize="16dp" />
+
+    <!-- ================ -->
+
 </RelativeLayout>

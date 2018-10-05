@@ -7,12 +7,16 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import java.util.List;
+
 import spoticesar.uniftec.com.br.spoticesar.activity.AgendaTelefonicaActivity;
-import spoticesar.uniftec.com.br.spoticesar.activity.BuscarAlbumActivity;
-import spoticesar.uniftec.com.br.spoticesar.activity.BuscarArtistaActivity;
-import spoticesar.uniftec.com.br.spoticesar.activity.BuscarMusicaActivity;
+import spoticesar.uniftec.com.br.spoticesar.activity.CadastroTelefoneActivity;
+import spoticesar.uniftec.com.br.spoticesar.activity.ImageActivity;
+import spoticesar.uniftec.com.br.spoticesar.models.Telefone;
 
 public class MainActivity extends AppCompatActivity {
+
+    private List<Telefone> telefones;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,25 +42,20 @@ public class MainActivity extends AppCompatActivity {
 
         switch (item.getItemId()) {
 
-//            case R.id.menu_buscar_album:
-//                startActivity(new Intent(this,
-//                        BuscarAlbumActivity.class));
-//                break;
-//
-//            case R.id.menu_buscar_artista:
-//                startActivity(new Intent(this,
-//                        BuscarArtistaActivity.class));
-//                break;
-//
-//            case R.id.menu_buscar_musica:
-//                startActivity(new Intent(this,
-//                        BuscarMusicaActivity.class));
-//                break;
-
             case R.id.menu_listagem_telefone:
                 startActivity(new Intent(this,
                         AgendaTelefonicaActivity.class));
                 break;
+
+            case R.id.menu_cadastro_telefone:
+                startActivity(new Intent(this,
+                        CadastroTelefoneActivity.class));
+                break;
+
+//            case R.id.menu_imagem:
+//                startActivity(new Intent(this,
+//                        ImageActivity.class));
+//                break;
         }
 
         return super.onOptionsItemSelected(item);

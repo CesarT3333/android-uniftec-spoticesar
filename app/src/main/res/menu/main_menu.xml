@@ -3,16 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".MainActivity">
 
-    <!--
-    <item android:id="@+id/menu_buscar_album"
-        android:title="Buscar por Album" />
-
-    <item android:id="@+id/menu_buscar_artista"
-        android:title="Buscar por Artista" />
-
-    <item android:id="@+id/menu_buscar_musica"
-        android:title="Buscar por Música" />
--->
     <item
         android:id="@+id/menu_listagem_telefone"
         android:title="Listagem telefones" />
@@ -20,5 +10,9 @@
     <item
         android:id="@+id/menu_cadastro_telefone"
         android:title="Cadastro de telefones" />
+
+    <!--<item-->
+        <!--android:id="@+id/menu_imagem"-->
+        <!--android:title="Imagem" />-->
 
 </menu>

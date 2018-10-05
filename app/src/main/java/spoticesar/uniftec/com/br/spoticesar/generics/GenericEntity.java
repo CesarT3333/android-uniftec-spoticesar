@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 import spoticesar.uniftec.com.br.spoticesar.R;
 
-public abstract class GenericEntity
+public class GenericEntity
         implements Serializable {
 
     private int imageId;

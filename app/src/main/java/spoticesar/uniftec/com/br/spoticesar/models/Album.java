@@ -1,5 +1,6 @@
 package spoticesar.uniftec.com.br.spoticesar.models;
 
+import java.io.Serializable;
 import java.util.List;
 
 import spoticesar.uniftec.com.br.spoticesar.generics.GenericEntity;

@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="spoticesar.uniftec.com.br.spoticesar">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -16,16 +19,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".activity.BuscarAlbumActivity"
-            android:label="@string/title_activity_buscar_album"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activity.BuscarArtistaActivity" />
-        <activity android:name=".activity.BuscarMusicaActivity" />
-        <activity android:name=".activity.DetalheMusicaActivity" />
-        <activity android:name=".activity.DetalheArtistaActivity" />
-        <activity android:name=".activity.DetalheAlbumActivity" />
-        <activity android:name=".activity.AgendaTelefonicaActivity"></activity>
+        <activity android:name=".activity.AgendaTelefonicaActivity" />
+        <activity android:name=".activity.ImageActivity" />
+        <activity android:name=".activity.CadastroTelefoneActivity"></activity>
     </application>
 
 </manifest>

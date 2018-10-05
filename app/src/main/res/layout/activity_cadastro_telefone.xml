@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="40dp"
+    tools:context=".activity.CadastroTelefoneActivity">
+
+    <TextView
+        android:id="@+id/txt_crud_nome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nome:" />
+
+    <EditText
+        android:id="@+id/edt_crud_nome"
+        android:layout_marginLeft="20dp"
+        android:hint="informe o Nome"
+        android:layout_toRightOf="@id/txt_crud_nome"
+        android:layout_width="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_height="wrap_content" />
+
+    <!-- ==================== -->
+
+    <TextView
+        android:id="@+id/txt_crud_endereco"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edt_crud_nome"
+        android:text="Endereço:" />
+
+    <EditText
+        android:id="@+id/edt_crud_endereco"
+        android:hint="informe o Endereco"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@+id/edt_crud_nome"
+        android:layout_toRightOf="@id/txt_crud_endereco"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- ==================== -->
+
+    <TextView
+        android:id="@+id/txt_crud_telefone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edt_crud_endereco"
+        android:text="Telefone:" />
+
+    <EditText
+        android:id="@+id/edt_crud_telefone"
+        android:hint="informe o Telefone"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/edt_crud_endereco"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@id/txt_crud_telefone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- ==================== -->
+
+    <Button
+        android:layout_marginTop="40dp"
+        android:id="@+id/btn_salvar_telefone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt_crud_telefone"
+        android:layout_centerHorizontal="true"
+        android:text="Salvar" />
+
+</RelativeLayout>

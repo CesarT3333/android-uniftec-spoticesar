@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 
+import spoticesar.uniftec.com.br.spoticesar.generics.GenericEntity;
 import spoticesar.uniftec.com.br.spoticesar.models.Album;
 import spoticesar.uniftec.com.br.spoticesar.models.Artista;
 import spoticesar.uniftec.com.br.spoticesar.models.Musica;
