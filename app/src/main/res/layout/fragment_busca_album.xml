@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activity.BuscarAlbumActivity">
-<!--
+    tools:context=".fragment.BuscaAlbumFragment">
+
     <LinearLayout
         android:id="@+id/layout_busca"
         android:layout_width="match_parent"
@@ -29,7 +29,10 @@
             android:layout_height="wrap_content"
             android:drawableLeft="@android:drawable/ic_menu_search" />
 
+
     </LinearLayout>
+
+    <!--</ListView>-->
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/album_recycler_view"
@@ -37,5 +40,5 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         tools:listitem="@layout/entity_menu_item" />
--->
+
 </LinearLayout>

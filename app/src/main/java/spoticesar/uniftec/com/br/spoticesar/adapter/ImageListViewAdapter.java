@@ -14,8 +14,9 @@ import java.util.List;
 import spoticesar.uniftec.com.br.spoticesar.R;
 import spoticesar.uniftec.com.br.spoticesar.generics.GenericEntity;
 
-public class ImageListViewAdapter
+public  class ImageListViewAdapter
         extends ArrayAdapter<String> {
+
 
     Context mContext;
     List<GenericEntity> entitys;
@@ -64,7 +65,7 @@ public class ImageListViewAdapter
         final GenericEntity entity =
                 this.entitys.get(position);
 
-        imageViewHolder.imageId.setImageResource(entity.getImageId());
+        imageViewHolder.imageId.setImageResource(R.drawable.imagi);
         imageViewHolder.entityToString.setText(entity.toString());
 
         return convertView;

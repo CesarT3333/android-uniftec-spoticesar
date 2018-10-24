@@ -12,6 +12,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 import spoticesar.uniftec.com.br.spoticesar.R;
@@ -24,11 +26,23 @@ public class ImageRecyclerViewAdapter<T extends GenericEntity>
 
     private List<T> entitys;
     private Context context;
+
     private String activityParam;
     private Class detalheActivity;
 
     private int positionEntity;
 
+    public ImageRecyclerViewAdapter(
+            Context context,
+            List<T> entitys
+    ) {
+        this.entitys = entitys;
+        this.context = context;
+        this.activityParam = activityParam;
+        this.detalheActivity = detalheActivity;
+    }
+
+    @Deprecated
     public ImageRecyclerViewAdapter(
             Context context,
             List<T> entitys,
@@ -64,6 +78,7 @@ public class ImageRecyclerViewAdapter<T extends GenericEntity>
         holder.parentLayout.setOnClickListener(this);
 
         holder.populaEntidade(entity);
+
     }
 
     @Override
@@ -73,7 +88,7 @@ public class ImageRecyclerViewAdapter<T extends GenericEntity>
 
     @Override
     public void onClick(View v) {
-
+/*
         Intent intent =
                 new Intent(context, this.detalheActivity);
 
@@ -81,6 +96,7 @@ public class ImageRecyclerViewAdapter<T extends GenericEntity>
                 entitys.get(this.positionEntity));
 
         context.startActivity(intent);
+        */
 
     }
 
@@ -91,6 +107,9 @@ public class ImageRecyclerViewAdapter<T extends GenericEntity>
         private TextView entityToString;
         LinearLayout parentLayout;
 
+
+        private static String URI = "https://bognarjunior.files.wordpress.com/2018/01/1crcyaithv7aiqh1z93v99q.png";
+
         public ImageItemViewHolder(@NonNull View itemView) {
             super(itemView);
 
@@ -100,8 +119,11 @@ public class ImageRecyclerViewAdapter<T extends GenericEntity>
         }
 
         public void populaEntidade(GenericEntity entity) {
+
             this.imagemAlbum.setImageResource(R.drawable.imagi);
+
             this.entityToString.setText(entity.toString());
+
         }
 
     }
