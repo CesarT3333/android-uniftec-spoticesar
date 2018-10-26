@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,31 +7,26 @@
     tools:context=".fragment.BuscaAlbumFragment">
 
     <LinearLayout
-        android:id="@+id/layout_busca"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:orientation="horizontal">
 
         <EditText
-            android:id="@+id/edit_buscar_album"
+            android:id="@+id/edit_buscar_artista"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginLeft="50dp"
             android:layout_marginRight="25dp"
-            android:hint="Buscar Album..." />
+            android:hint="Buscar Artista..." />
 
         <Button
-            android:id="@+id/button_buscar_album"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawableLeft="@android:drawable/ic_menu_search" />
 
-
     </LinearLayout>
-
-    <!--</ListView>-->
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/album_recycler_view"

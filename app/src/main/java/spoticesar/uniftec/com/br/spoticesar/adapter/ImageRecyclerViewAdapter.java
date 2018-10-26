@@ -1,9 +1,8 @@
 package spoticesar.uniftec.com.br.spoticesar.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,18 +11,17 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.squareup.picasso.Picasso;
-
 import java.util.List;
 
 import spoticesar.uniftec.com.br.spoticesar.R;
-import spoticesar.uniftec.com.br.spoticesar.activity.DetalheAlbumActivity;
 import spoticesar.uniftec.com.br.spoticesar.generics.GenericEntity;
+import spoticesar.uniftec.com.br.spoticesar.utils.SearchAdapterListener;
 
 public class ImageRecyclerViewAdapter<T extends GenericEntity>
-        extends RecyclerView.Adapter<ImageRecyclerViewAdapter.ImageItemViewHolder>
-        implements View.OnClickListener {
+        extends RecyclerView.Adapter<ImageRecyclerViewAdapter.ImageItemViewHolder> {
 
+    private final SearchAdapterListener listener;
+    private FragmentActivity detalheFragment;
     private List<T> entitys;
     private Context context;
 
@@ -32,27 +30,15 @@ public class ImageRecyclerViewAdapter<T extends GenericEntity>
 
     private int positionEntity;
 
-    public ImageRecyclerViewAdapter(
-            Context context,
-            List<T> entitys
-    ) {
-        this.entitys = entitys;
-        this.context = context;
-        this.activityParam = activityParam;
-        this.detalheActivity = detalheActivity;
-    }
 
-    @Deprecated
     public ImageRecyclerViewAdapter(
             Context context,
             List<T> entitys,
-            String activityParam,
-            Class detalheActivity
+            SearchAdapterListener listener
     ) {
         this.entitys = entitys;
         this.context = context;
-        this.activityParam = activityParam;
-        this.detalheActivity = detalheActivity;
+        this.listener = listener;
     }
 
     @Override
@@ -63,19 +49,16 @@ public class ImageRecyclerViewAdapter<T extends GenericEntity>
         View itemView = inflater.inflate(R.layout.entity_menu_item, parent,
                 false);
 
-        return new ImageItemViewHolder(itemView);
+        return new ImageItemViewHolder(itemView, this.listener);
 
     }
 
     @Override
     public void onBindViewHolder(ImageItemViewHolder holder, int position) {
-
         GenericEntity entity =
                 this.entitys.get(position);
 
         this.positionEntity = position;
-
-        holder.parentLayout.setOnClickListener(this);
 
         holder.populaEntidade(entity);
 
@@ -86,36 +69,30 @@ public class ImageRecyclerViewAdapter<T extends GenericEntity>
         return this.entitys.size();
     }
 
-    @Override
-    public void onClick(View v) {
-/*
-        Intent intent =
-                new Intent(context, this.detalheActivity);
-
-        intent.putExtra(this.activityParam,
-                entitys.get(this.positionEntity));
-
-        context.startActivity(intent);
-        */
-
-    }
-
     public static class ImageItemViewHolder
-            extends RecyclerView.ViewHolder {
+            extends RecyclerView.ViewHolder
+            implements View.OnClickListener {
 
         private ImageView imagemAlbum;
         private TextView entityToString;
         LinearLayout parentLayout;
 
+        SearchAdapterListener holderListener;
 
-        private static String URI = "https://bognarjunior.files.wordpress.com/2018/01/1crcyaithv7aiqh1z93v99q.png";
-
-        public ImageItemViewHolder(@NonNull View itemView) {
+        public ImageItemViewHolder(
+                @NonNull View itemView,
+                SearchAdapterListener listener
+        ) {
             super(itemView);
+
+            this.holderListener = listener;
 
             parentLayout = itemView.findViewById(R.id.item_linear_layout);
             imagemAlbum = itemView.findViewById(R.id.image_src);
             entityToString = itemView.findViewById(R.id.entity_to_string);
+
+            itemView.setOnClickListener(this);
+
         }
 
         public void populaEntidade(GenericEntity entity) {
@@ -124,6 +101,13 @@ public class ImageRecyclerViewAdapter<T extends GenericEntity>
 
             this.entityToString.setText(entity.toString());
 
+        }
+
+        @Override
+        public void onClick(View view) {
+            if (holderListener != null) {
+                holderListener.onSearchItemClick(getAdapterPosition());
+            }
         }
 
     }

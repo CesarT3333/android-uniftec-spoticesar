@@ -2,8 +2,8 @@
     <string name="app_name">SpotiCesar</string>
     <string name="title_activity_buscar_album">BuscarAlbumActivity</string>
 
-    <string name="buscar_artista_menu_item_label">Buscar por Album</string>
-    <string name="buscar_musica_menu_item_label">Buscar por Album</string>
+    <string name="buscar_artista_menu_item_label">Buscar por Artista</string>
+    <string name="buscar_musica_menu_item_label">Buscar por Música</string>
     <string name="buscar_album_menu_item_label">Buscar por Album</string>
 
     <!-- TODO: Remove or change this placeholder text -->

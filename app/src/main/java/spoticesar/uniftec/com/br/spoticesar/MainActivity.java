@@ -1,26 +1,18 @@
 package spoticesar.uniftec.com.br.spoticesar;
 
-import android.content.Intent;
-import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 
-import spoticesar.uniftec.com.br.spoticesar.activity.BuscarAlbumActivity;
-import spoticesar.uniftec.com.br.spoticesar.activity.BuscarArtistaActivity;
-import spoticesar.uniftec.com.br.spoticesar.activity.BuscarMusicaActivity;
-import spoticesar.uniftec.com.br.spoticesar.fragment.BlankFragment;
 import spoticesar.uniftec.com.br.spoticesar.fragment.BuscaAlbumFragment;
+import spoticesar.uniftec.com.br.spoticesar.fragment.BuscaArtistaFragment;
+import spoticesar.uniftec.com.br.spoticesar.fragment.BuscaMusicaFragment;
 
 public class MainActivity
         extends AppCompatActivity
@@ -61,17 +53,11 @@ public class MainActivity
                 break;
 
             case R.id.menu_buscar_artista:
-                startActivity(new Intent(this,
-                        BuscarArtistaActivity.class));
+                this.changeFragment(BuscaArtistaFragment.newInstance());
                 break;
 
             case R.id.menu_buscar_musica:
-                startActivity(new Intent(this,
-                        BuscarMusicaActivity.class));
-                break;
-
-            case R.id.menu_fragment:
-                this.changeFragment(BlankFragment.newInstance());
+                this.changeFragment(BuscaMusicaFragment.newInstance());
                 break;
 
         }
@@ -86,6 +72,8 @@ public class MainActivity
                 .beginTransaction()
                 .replace(R.id.main_activity_container_frame_layout, f)
                 .commit();
+
+        this.drawerLayout.closeDrawers();
 
     }
 

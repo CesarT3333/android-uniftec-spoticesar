@@ -1,13 +1,10 @@
 package spoticesar.uniftec.com.br.spoticesar.fragment;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -19,24 +16,24 @@ import java.util.List;
 import spoticesar.uniftec.com.br.spoticesar.R;
 import spoticesar.uniftec.com.br.spoticesar.adapter.ImageRecyclerViewAdapter;
 import spoticesar.uniftec.com.br.spoticesar.constants.Mock;
-import spoticesar.uniftec.com.br.spoticesar.models.Album;
+import spoticesar.uniftec.com.br.spoticesar.models.Musica;
 import spoticesar.uniftec.com.br.spoticesar.utils.SearchAdapterListener;
 
-public class BuscaAlbumFragment extends
-        Fragment implements SearchAdapterListener {
+public class BuscaMusicaFragment extends Fragment implements SearchAdapterListener {
 
-    private List<Album> albuns;
+    private List<Musica> musicas;
 
+    public BuscaMusicaFragment() {
+    }
 
-    public static BuscaAlbumFragment newInstance() {
-        BuscaAlbumFragment fragment = new BuscaAlbumFragment();
+    public static BuscaMusicaFragment newInstance() {
+        BuscaMusicaFragment fragment = new BuscaMusicaFragment();
+
         return fragment;
-
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
 
     }
@@ -44,7 +41,7 @@ public class BuscaAlbumFragment extends
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_busca_album, container, false);
+        return inflater.inflate(R.layout.fragment_busca_musica, container, false);
     }
 
     @Override
@@ -52,9 +49,9 @@ public class BuscaAlbumFragment extends
         super.onViewCreated(view, savedInstanceState);
 
         RecyclerView listaAlbunsRecyclerView =
-                view.findViewById(R.id.album_recycler_view);
+                view.findViewById(R.id.musica_recycler_view);
 
-        this.albuns = Mock.mockAlbuns;
+        this.musicas = Mock.mockMusicas;
 
         Context context = this.getContext();
 
@@ -62,9 +59,9 @@ public class BuscaAlbumFragment extends
                 new LinearLayoutManager(context);
 
         ImageRecyclerViewAdapter imageRecyclerViewAdapter =
-                new ImageRecyclerViewAdapter<Album>(
+                new ImageRecyclerViewAdapter<Musica>(
                         context,
-                        this.albuns,
+                        this.musicas,
                         this
                 );
 
@@ -76,13 +73,5 @@ public class BuscaAlbumFragment extends
     @Override
     public void onSearchItemClick(int position) {
 
-        Fragment childFragment = new DetalheAlbumFragment();
-
-        getChildFragmentManager()
-                .beginTransaction()
-                .replace(R.id.main_activity_container_frame_layout, childFragment)
-                .commit();
-
     }
-
 }

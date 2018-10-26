@@ -15,8 +15,4 @@
         android:id="@+id/menu_buscar_musica"
         android:title="@string/buscar_musica_menu_item_label" />
 
-    <item
-        android:id="@+id/menu_fragment"
-        android:title="Abrir Fragment" />
-
 </menu>

@@ -5,26 +5,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activity.BuscarAlbumActivity">
-<!--
+    tools:context=".fragment.BuscaMusicaFragment">
+
     <LinearLayout
-        android:id="@+id/layout_busca"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:orientation="horizontal">
 
         <EditText
-            android:id="@+id/edit_buscar_album"
+            android:id="@+id/edit_buscar_musica"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginLeft="50dp"
             android:layout_marginRight="25dp"
-            android:hint="Buscar Album..." />
+            android:hint="Buscar Música..." />
 
         <Button
-            android:id="@+id/button_buscar_album"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawableLeft="@android:drawable/ic_menu_search" />
@@ -32,10 +30,10 @@
     </LinearLayout>
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/album_recycler_view"
+        android:id="@+id/musica_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         tools:listitem="@layout/entity_menu_item" />
--->
+
 </LinearLayout>
