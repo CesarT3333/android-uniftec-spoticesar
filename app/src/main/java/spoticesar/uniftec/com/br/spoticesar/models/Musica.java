@@ -14,6 +14,9 @@ public class Musica
 
     private Artista artista;
 
+    public Musica(){
+
+    }
     private Album album;
 
     public Musica(String nome, Calendar duracaoFaixa, Artista artista, Album album) {

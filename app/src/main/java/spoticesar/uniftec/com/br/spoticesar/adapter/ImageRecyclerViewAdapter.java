@@ -12,6 +12,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 import spoticesar.uniftec.com.br.spoticesar.R;
@@ -63,7 +65,8 @@ public class ImageRecyclerViewAdapter<T extends GenericEntity>
 
         holder.parentLayout.setOnClickListener(this);
 
-        holder.populaEntidade(entity);
+        holder.populaEntidade(entity, context);
+
     }
 
     @Override
@@ -84,6 +87,12 @@ public class ImageRecyclerViewAdapter<T extends GenericEntity>
 
     }
 
+    public void updateData(List<T> entitys) {
+        this.entitys.clear();
+        this.entitys.addAll(entitys);
+        this.notifyDataSetChanged();
+    }
+
     public static class ImageItemViewHolder
             extends RecyclerView.ViewHolder {
 
@@ -97,10 +106,15 @@ public class ImageRecyclerViewAdapter<T extends GenericEntity>
             parentLayout = itemView.findViewById(R.id.item_linear_layout);
             imagemAlbum = itemView.findViewById(R.id.image_src);
             entityToString = itemView.findViewById(R.id.entity_to_string);
+
         }
 
-        public void populaEntidade(GenericEntity entity) {
-            this.imagemAlbum.setImageResource(R.drawable.imagi);
+        public void populaEntidade(GenericEntity entity, Context context) {
+
+            Picasso.with(context)
+                    .load(entity.getImageUrl())
+                    .into(imagemAlbum);
+
             this.entityToString.setText(entity.toString());
         }
 

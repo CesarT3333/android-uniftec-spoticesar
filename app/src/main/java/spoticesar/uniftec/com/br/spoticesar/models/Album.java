@@ -1,6 +1,9 @@
 package spoticesar.uniftec.com.br.spoticesar.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import spoticesar.uniftec.com.br.spoticesar.generics.GenericEntity;
@@ -10,11 +13,24 @@ public class Album
 
     private Integer id;
 
+    private List<Musica> musicas = new ArrayList<>();
+
+    @JsonProperty("title")
     private String nome;
 
-    private List<Musica> musicas;
+    @JsonProperty("artist")
+    private Artista artista = new Artista();
 
-    private Artista artista;
+    @JsonProperty("cover_small")
+    private String imagem;
+
+    @Override
+    public String getImageUrl() {
+        return imagem;
+    }
+
+    public Album() {
+    }
 
     public Album(Integer id, String nome, Artista artista) {
         this.id = id;
