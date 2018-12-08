@@ -83,6 +83,7 @@ public class DetalheAlbumActivity
         Intent intent = new Intent(this, DetalheMusicaActivity.class);
         intent.putExtra(DetalheMusicaActivity.MUSICA_PARAM, this.musicas.get(position));
         startActivity(intent);
+        finish();
     }
 
     @Override

@@ -8,6 +8,7 @@ import spoticesar.uniftec.com.br.spoticesar.models.Album;
 import spoticesar.uniftec.com.br.spoticesar.models.AlbumListResponse;
 import spoticesar.uniftec.com.br.spoticesar.models.Artista;
 import spoticesar.uniftec.com.br.spoticesar.models.ArtistaResponse;
+import spoticesar.uniftec.com.br.spoticesar.models.Musica;
 import spoticesar.uniftec.com.br.spoticesar.models.MusicaResponse;
 
 public interface SearchService {
@@ -28,5 +29,8 @@ public interface SearchService {
 
     @GET("/artist/{idArtista}/albums")
     Call<AlbumListResponse> searchAlbunsDoArtista(@Path("idArtista") String idArtista);
+
+    @GET("/track/{idMusica}")
+    Call<Musica> searchMusicaById(@Path("idMusica") String idMusica);
 
 }

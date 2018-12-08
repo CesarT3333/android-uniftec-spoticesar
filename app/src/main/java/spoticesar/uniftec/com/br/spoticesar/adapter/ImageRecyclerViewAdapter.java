@@ -21,8 +21,7 @@ import spoticesar.uniftec.com.br.spoticesar.activity.DetalheAlbumActivity;
 import spoticesar.uniftec.com.br.spoticesar.generics.GenericEntity;
 
 public class ImageRecyclerViewAdapter<T extends GenericEntity>
-        extends RecyclerView.Adapter<ImageRecyclerViewAdapter.ImageItemViewHolder>
-        implements View.OnClickListener {
+        extends RecyclerView.Adapter<ImageRecyclerViewAdapter.ImageItemViewHolder> implements View.OnClickListener {
 
     private List<T> entitys;
     private Context context;
@@ -50,9 +49,13 @@ public class ImageRecyclerViewAdapter<T extends GenericEntity>
         View viewCriada = LayoutInflater.from(context)
                 .inflate(R.layout.entity_menu_item, parent, false);
 
-        viewCriada.setOnClickListener(this);
+        ImageItemViewHolder imgViewHolder =
+                new ImageItemViewHolder(viewCriada);
 
-        return new ImageItemViewHolder(viewCriada);
+        this.positionEntity = position;
+
+        return imgViewHolder;
+
     }
 
     @Override
@@ -61,9 +64,12 @@ public class ImageRecyclerViewAdapter<T extends GenericEntity>
         GenericEntity entity =
                 this.entitys.get(position);
 
-        this.positionEntity = position;
-
-        holder.populaEntidade(entity, context);
+        holder.populaEntidade(
+                entity,
+                context,
+                detalheActivity,
+                this.activityParam
+        );
 
     }
 
@@ -72,33 +78,31 @@ public class ImageRecyclerViewAdapter<T extends GenericEntity>
         return this.entitys.size();
     }
 
-    @Override
-    public void onClick(View v) {
-
-        Intent intent =
-                new Intent(context, this.detalheActivity);
-
-        intent.putExtra(this.activityParam,
-                entitys.get(this.positionEntity));
-
-        context.startActivity(intent);
-
-    }
-
     public void updateData(List<T> entitys) {
         this.entitys.clear();
         this.entitys.addAll(entitys);
         this.notifyDataSetChanged();
     }
 
+    @Override
+    public void onClick(View v) {
+
+    }
+
     public static class ImageItemViewHolder
-            extends RecyclerView.ViewHolder {
+            extends RecyclerView.ViewHolder implements View.OnClickListener {
+
+        private Context context;
+        private Class detalheActivity;
+        private String activityParam;
 
         private ImageView imagemAlbum;
         private TextView entityToString;
         LinearLayout parentLayout;
+        private GenericEntity entity;
 
-        public ImageItemViewHolder(@NonNull View itemView) {
+        public ImageItemViewHolder(
+                @NonNull View itemView) {
             super(itemView);
 
             parentLayout = itemView.findViewById(R.id.item_linear_layout);
@@ -107,13 +111,35 @@ public class ImageRecyclerViewAdapter<T extends GenericEntity>
 
         }
 
-        public void populaEntidade(GenericEntity entity, Context context) {
+        public void populaEntidade(
+                GenericEntity entity,
+                Context context,
+                Class detalheActivity,
+                String activityParam
+        ) {
+            this.entity = entity;
+            this.context = context;
+            this.detalheActivity = detalheActivity;
+            this.activityParam = activityParam;
 
             Picasso.with(context)
                     .load(entity.getImageUrl())
                     .into(imagemAlbum);
 
             this.entityToString.setText(entity.toString());
+
+            parentLayout.setOnClickListener(this);
+
+        }
+
+        @Override
+        public void onClick(View v) {
+            Intent intent =
+                    new Intent(context, detalheActivity);
+
+            intent.putExtra(activityParam, this.entity);
+
+            context.startActivity(intent);
 
         }
 

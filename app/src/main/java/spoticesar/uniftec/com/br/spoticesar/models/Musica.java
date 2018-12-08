@@ -10,16 +10,20 @@ import spoticesar.uniftec.com.br.spoticesar.generics.GenericEntity;
 public class Musica
         extends GenericEntity {
 
-    private Artista artista = new Artista();
-
     @JsonProperty("title")
     private String nome;
 
     @JsonProperty("album")
     private Album album = new Album();
 
+    @JsonProperty("artist")
+    private Artista artista = new Artista();
+
+    @JsonProperty("duration")
     private long duracao;
 
+    @JsonProperty("release_date")
+    private String dataLancamento;
 
     public Musica() {
 
@@ -31,7 +35,7 @@ public class Musica
                 + this.nome
                 + "\nArtista: "
                 + this.artista.getNome()
-                + "\nDuração: 02:30 "
+                + "\nDuração: " + this.getDuracao()+" seg."
                 + "\nAlbum: "
                 + this.album.getNome();
     }
@@ -54,7 +58,13 @@ public class Musica
         this.nome = nome;
     }
 
+    public String getDataLancamento() {
+        return dataLancamento;
+    }
 
+    public void setDataLancamento(String dataLancamento) {
+        this.dataLancamento = dataLancamento;
+    }
 
     public Artista getArtista() {
         return artista;

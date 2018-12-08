@@ -19,7 +19,8 @@ import spoticesar.uniftec.com.br.spoticesar.models.MusicaResponse;
 import spoticesar.uniftec.com.br.spoticesar.task.SearchMusicTask;
 
 public class BuscarMusicaActivity
-        extends AppCompatActivity implements View.OnClickListener, SearchMusicTask.SearchMusicTaskDelegate {
+        extends AppCompatActivity
+        implements View.OnClickListener, SearchMusicTask.SearchMusicTaskDelegate {
 
     private ProgressDialog progressDialog;
     private List<Musica> musicas = new ArrayList<>();

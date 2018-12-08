@@ -3,6 +3,8 @@ package spoticesar.uniftec.com.br.spoticesar.activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -21,11 +23,9 @@ import spoticesar.uniftec.com.br.spoticesar.task.SearchAlbunsDoArtistaTask;
 
 public class DetalheArtistaActivity
         extends AppCompatActivity
-        implements SearchAlbunsDoArtistaTask.SearchArtistaByIdTaskDelegate {
+        implements SearchAlbunsDoArtistaTask.SearchArtistaByIdTaskDelegate, AdapterView.OnItemClickListener {
 
     public static final String ARTISTA_PARAM = "ARTISTA_PARAM";
-
-    // ==========================
 
     private TextView txtvNumeroAlbuns;
     private TextView txtvNomeArtista;
@@ -34,9 +34,6 @@ public class DetalheArtistaActivity
     private ListView listViewAlbuns;
     private ImageView imgvArtista;
 
-    // ==========================
-
-    private List<Artista> artistas;
     private List<Album> albuns;
 
     // ==========================
@@ -67,8 +64,9 @@ public class DetalheArtistaActivity
         this.txtvNumeroFans = findViewById(R.id.txtv_artista_numero_fans_imp);
         this.txtvNumeroAlbuns = findViewById(R.id.txtv_artista_numero_albuns_imp);
 
-        this.listViewAlbuns = findViewById(R.id.artista_album_listView);
         this.imgvArtista = findViewById(R.id.artista_image_src);
+        this.listViewAlbuns = findViewById(R.id.artista_album_listView);
+        this.listViewAlbuns.setOnItemClickListener(this);
     }
 
     private void populaArtistaEmTela(Artista artista) {
@@ -89,9 +87,10 @@ public class DetalheArtistaActivity
         final List<Album> albuns = response.getData();
         List<String> nomeDosAlbuns = new ArrayList<>();
 
-        for (Album a : albuns) {
+        this.albuns = albuns;
+
+        for (Album a : albuns)
             nomeDosAlbuns.add(a.getNome());
-        }
 
         ArrayAdapter<String> arrayAdapter =
                 new ArrayAdapter<>(this,
@@ -102,7 +101,16 @@ public class DetalheArtistaActivity
     }
 
     @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Intent intent = new Intent(this, DetalheAlbumActivity.class);
+        intent.putExtra(DetalheAlbumActivity.ALBUM_PARAM, this.albuns.get(position));
+        startActivity(intent);
+        finish();
+    }
+
+    @Override
     public void onSearchAlbunsDoArtistaError(String error) {
 
     }
+
 }
