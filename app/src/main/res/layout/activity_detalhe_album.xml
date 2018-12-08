@@ -28,8 +28,9 @@
 
     <TextView
         android:id="@+id/txtv_album_nome_album_imp"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/album_image_src"
         android:layout_margin="10dp"
         android:layout_toRightOf="@id/txtv_album_nome_album" />
 
@@ -45,7 +46,7 @@
 
     <TextView
         android:id="@+id/txtv_album_nome_artista_imp"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/txtv_album_nome_album_imp"
         android:layout_margin="10dp"
@@ -60,11 +61,11 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/txtv_album_nome_artista"
         android:layout_margin="10dp"
-        android:text="Artista: " />
+        android:text="Duração: " />
 
     <TextView
         android:id="@+id/txtv_album_duracao_album_imp"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/txtv_album_nome_artista_imp"
         android:layout_margin="10dp"
@@ -82,7 +83,7 @@
 
     <TextView
         android:id="@+id/txtv_album_numero_fans_imp"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/txtv_album_duracao_album_imp"
         android:layout_margin="10dp"
@@ -96,11 +97,11 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/txtv_album_numero_fans"
         android:layout_margin="10dp"
-        android:text="Número de fãns: " />
+        android:text="Número de Músicas: " />
 
     <TextView
         android:id="@+id/txtv_album_numero_musicas_imp"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/txtv_album_numero_fans_imp"
         android:layout_margin="10dp"

@@ -4,16 +4,16 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
 
-public class MusicaResponse {
+public class AlbumListResponse {
 
     @JsonProperty("data")
-    private List<Musica> data;
+    private List<Album> data;
 
-    public List<Musica> getData() {
+    public List<Album> getData() {
         return data;
     }
 
-    public void setData(List<Musica> data) {
+    public void setData(List<Album> data) {
         this.data = data;
     }
 

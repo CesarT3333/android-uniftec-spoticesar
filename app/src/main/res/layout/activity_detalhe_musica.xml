@@ -92,7 +92,7 @@
     <!-- ==================== -->
 
     <Button
-        android:id="@+id/play"
+        android:id="@+id/btn_play"
         android:layout_width="56dp"
         android:layout_height="56dp"
         android:layout_below="@+id/txtv_musica_data_lancamento"
@@ -108,7 +108,7 @@
     <Button
         android:id="@+id/pause"
         android:layout_width="56dp"
-        android:layout_toLeftOf="@+id/play"
+        android:layout_toLeftOf="@+id/btn_play"
         android:layout_height="56dp"
         android:layout_below="@+id/txtv_musica_data_lancamento"
         android:layout_centerHorizontal="true"

@@ -2,20 +2,18 @@ package spoticesar.uniftec.com.br.spoticesar.task;
 
 import android.os.AsyncTask;
 
-import java.io.IOException;
-
 import retrofit2.Call;
 import retrofit2.Response;
 import spoticesar.uniftec.com.br.spoticesar.models.AlbumListResponse;
 import spoticesar.uniftec.com.br.spoticesar.service.SearchService;
 import spoticesar.uniftec.com.br.spoticesar.utils.RetrofitUtil;
 
-public class SearchAlbumTask
-        extends AsyncTask<String, Void, AlbumListResponse> {
+public class SearchAlbunsDoArtistaTask
+            extends AsyncTask<String, Void, AlbumListResponse> {
 
-    private final SearchAlbumTaskDelegate delegate;
+    private final SearchArtistaByIdTaskDelegate delegate;
 
-    public SearchAlbumTask(SearchAlbumTaskDelegate delegate) {
+    public SearchAlbunsDoArtistaTask(SearchArtistaByIdTaskDelegate delegate) {
         this.delegate = delegate;
     }
 
@@ -24,14 +22,13 @@ public class SearchAlbumTask
 
         SearchService service = RetrofitUtil.getInstance().createSearchService();
 
-        Call<AlbumListResponse> call = service.searchAlbum(strings[0]);
+        Call<AlbumListResponse> call = service.searchAlbunsDoArtista(strings[0]);
 
         try {
 
             Response<AlbumListResponse> response = call.execute();
 
             if (response.isSuccessful()) {
-                // response.raw().body().string() - response em formato string
                 return response.body();
             }
 
@@ -44,17 +41,17 @@ public class SearchAlbumTask
     }
 
     @Override
-    protected void onPostExecute(AlbumListResponse searchMovieResponse) {
-        if (searchMovieResponse != null) {
-            delegate.onSearchMovieSuccess(searchMovieResponse);
+    protected void onPostExecute(AlbumListResponse artistaResponse) {
+        if (artistaResponse != null) {
+            delegate.onSearchAlbunsDoArtistaSuccess(artistaResponse);
         } else {
-            delegate.onSearchMovieError("Não foi possível realizar a busca.");
+            delegate.onSearchAlbunsDoArtistaError("Não foi possível realizar a busca.");
         }
     }
 
-    public interface SearchAlbumTaskDelegate {
-        void onSearchMovieSuccess(AlbumListResponse response);
-        void onSearchMovieError(String error);
+    public interface SearchArtistaByIdTaskDelegate {
+        void onSearchAlbunsDoArtistaSuccess(AlbumListResponse response);
+        void onSearchAlbunsDoArtistaError(String error);
     }
 
 }

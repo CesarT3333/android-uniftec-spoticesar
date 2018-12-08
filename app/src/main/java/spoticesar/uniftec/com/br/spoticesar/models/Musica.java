@@ -1,5 +1,7 @@
 package spoticesar.uniftec.com.br.spoticesar.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.io.Serializable;
 import java.util.Calendar;
 
@@ -8,22 +10,19 @@ import spoticesar.uniftec.com.br.spoticesar.generics.GenericEntity;
 public class Musica
         extends GenericEntity {
 
+    private Artista artista = new Artista();
+
+    @JsonProperty("title")
     private String nome;
 
-    private Calendar duracaoFaixa;
+    @JsonProperty("album")
+    private Album album = new Album();
 
-    private Artista artista;
+    private long duracao;
 
-    public Musica(){
 
-    }
-    private Album album;
+    public Musica() {
 
-    public Musica(String nome, Calendar duracaoFaixa, Artista artista, Album album) {
-        this.nome = nome;
-        this.duracaoFaixa = duracaoFaixa;
-        this.artista = artista;
-        this.album = album;
     }
 
     @Override
@@ -37,6 +36,16 @@ public class Musica
                 + this.album.getNome();
     }
 
+    @Override
+    public String getImageUrl() {
+        return this.album.getImageUrl();
+    }
+//
+//    public Musica(String nome, Artista artista, Album album) {
+//        this.nome = nome;
+//        this.artista = artista;
+//    }
+
     public String getNome() {
         return nome;
     }
@@ -45,13 +54,7 @@ public class Musica
         this.nome = nome;
     }
 
-    public Calendar getDuracaoFaixa() {
-        return duracaoFaixa;
-    }
 
-    public void setDuracaoFaixa(Calendar duracaoFaixa) {
-        this.duracaoFaixa = duracaoFaixa;
-    }
 
     public Artista getArtista() {
         return artista;
@@ -68,4 +71,41 @@ public class Musica
     public void setAlbum(Album album) {
         this.album = album;
     }
+
+    public long getDuracao() {
+        return duracao;
+    }
+
+    public void setDuracao(long duracao) {
+        this.duracao = duracao;
+    }
 }
+//
+//class AlbumRerorno {
+//
+//    @JsonProperty("cover_small")
+//    private String imagem;
+//
+//    @JsonProperty("title")
+//    private String title;
+//
+//    public String getTitle() {
+//        return title;
+//    }
+//
+//    public void setTitle(String title) {
+//        this.title = title;
+//    }
+//
+//    public String getImageUrl() {
+//        return this.imagem;
+//    }
+//
+//    public String getImagem() {
+//        return imagem;
+//    }
+//
+//    public void setImagem(String imagem) {
+//        this.imagem = imagem;
+//    }
+//}

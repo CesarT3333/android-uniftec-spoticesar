@@ -24,6 +24,18 @@ public class Album
     @JsonProperty("cover_small")
     private String imagem;
 
+    @JsonProperty("duration")
+    private int duracao;
+
+    @JsonProperty("nb_tracks")
+    private int numeroMusicas;
+
+    @JsonProperty("fans")
+    private int numeroFans;
+
+    @JsonProperty("tracks")
+    private MusicaResponse musicaResponse;
+
     @Override
     public String getImageUrl() {
         return imagem;
@@ -32,15 +44,17 @@ public class Album
     public Album() {
     }
 
-    public Album(Integer id, String nome, Artista artista) {
-        this.id = id;
-        this.nome = nome;
-        this.artista = artista;
-    }
-
     @Override
     public String toString() {
         return "Nome: " + nome + "\nArtista: " + this.artista.getNome();
+    }
+
+    public MusicaResponse getMusicaResponse() {
+        return musicaResponse;
+    }
+
+    public void setMusicaResponse(MusicaResponse musicaResponse) {
+        this.musicaResponse = musicaResponse;
     }
 
     public String getNome() {
@@ -73,5 +87,37 @@ public class Album
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public int getDuracao() {
+        return duracao;
+    }
+
+    public String getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(String imagem) {
+        this.imagem = imagem;
+    }
+
+    public int getNumeroMusicas() {
+        return numeroMusicas;
+    }
+
+    public void setNumeroMusicas(int numeroMusicas) {
+        this.numeroMusicas = numeroMusicas;
+    }
+
+    public void setDuracao(int duracao) {
+        this.duracao = duracao;
+    }
+
+    public int getNumeroFans() {
+        return numeroFans;
+    }
+
+    public void setNumeroFans(int numeroFans) {
+        this.numeroFans = numeroFans;
     }
 }

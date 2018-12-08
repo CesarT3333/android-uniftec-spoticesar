@@ -3,7 +3,8 @@
     package="spoticesar.uniftec.com.br.spoticesar">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
         android:allowBackup="true"
@@ -12,6 +13,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <!-- Se der erro -->
+        <!-- <uses-library android:name="org.apache.http.legacy" android:required="false"/> -->
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,7 +32,7 @@
         <activity android:name=".activity.BuscarMusicaActivity" />
         <activity android:name=".activity.DetalheMusicaActivity" />
         <activity android:name=".activity.DetalheArtistaActivity" />
-        <activity android:name=".activity.DetalheAlbumActivity"></activity>
+        <activity android:name=".activity.DetalheAlbumActivity" />
     </application>
 
 </manifest>

@@ -2,19 +2,31 @@ package spoticesar.uniftec.com.br.spoticesar.service;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
-import spoticesar.uniftec.com.br.spoticesar.models.AlbumResponse;
+import spoticesar.uniftec.com.br.spoticesar.models.Album;
+import spoticesar.uniftec.com.br.spoticesar.models.AlbumListResponse;
+import spoticesar.uniftec.com.br.spoticesar.models.Artista;
+import spoticesar.uniftec.com.br.spoticesar.models.ArtistaResponse;
 import spoticesar.uniftec.com.br.spoticesar.models.MusicaResponse;
 
 public interface SearchService {
 
-    @GET("/3/search/movie?language=pt-BR")
-    Call<MusicaResponse> searchMusica(@Query("query") String query);
+    @GET("/search/track")
+    Call<MusicaResponse> searchMusica(@Query("q") String query);
 
-    @GET("/3/search/movie?language=pt-BR")
-    Call<ArtistaResponse> searchArtist(@Query("query") String query);
+    @GET("/search/artist")
+    Call<ArtistaResponse> searchArtist(@Query("q") String query);
 
     @GET("/search/album")
-    Call<AlbumResponse> searchAlbum(@Query("q") String filtro);
+    Call<AlbumListResponse> searchAlbum(@Query("q") String filtro);
+
+    // ================
+
+    @GET("/album/{idAlbum}")
+    Call<Album> searchAlbumById(@Path("idAlbum") String idAlbum);
+
+    @GET("/artist/{idArtista}/albums")
+    Call<AlbumListResponse> searchAlbunsDoArtista(@Path("idArtista") String idArtista);
 
 }

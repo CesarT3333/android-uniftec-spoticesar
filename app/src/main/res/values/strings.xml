@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">SpotiCesar</string>
+    <string name="info_shared_preferences">INFO_SP</string>
+    <string name="user_info">USER_INFO</string>
     <string name="title_activity_buscar_album">BuscarAlbumActivity</string>
 </resources>

@@ -14,14 +14,14 @@ import java.util.List;
 
 import spoticesar.uniftec.com.br.spoticesar.R;
 import spoticesar.uniftec.com.br.spoticesar.adapter.ImageRecyclerViewAdapter;
-import spoticesar.uniftec.com.br.spoticesar.constants.Mock;
 import spoticesar.uniftec.com.br.spoticesar.models.Album;
-import spoticesar.uniftec.com.br.spoticesar.models.AlbumResponse;
+import spoticesar.uniftec.com.br.spoticesar.models.AlbumListResponse;
 import spoticesar.uniftec.com.br.spoticesar.task.SearchAlbumTask;
 
 public class BuscarAlbumActivity
         extends AppCompatActivity
-        implements View.OnClickListener, SearchAlbumTask.SearchAlbumTaskDelegate {
+        implements View.OnClickListener,
+        SearchAlbumTask.SearchAlbumTaskDelegate {
 
     private List<Album> albuns = new ArrayList<>();
 
@@ -66,7 +66,10 @@ public class BuscarAlbumActivity
         String filtro = this.edtFiltro.getText().toString();
 
         if (filtro != null && filtro.trim().length() != 0) {
-            progressDialog = ProgressDialog.show(this, "Aguarde", "Buscando filmes", true, false);
+            progressDialog = ProgressDialog
+                    .show(this,
+                            "Aguarde",
+                            "Buscando Albuns", true, false);
             SearchAlbumTask task = new SearchAlbumTask(this);
             task.execute(filtro);
 
@@ -75,7 +78,7 @@ public class BuscarAlbumActivity
     }
 
     @Override
-    public void onSearchMovieSuccess(AlbumResponse response) {
+    public void onSearchMovieSuccess(AlbumListResponse response) {
         progressDialog.dismiss();
         progressDialog = null;
         this.imageRecyclerViewAdapter.updateData(response.getData());

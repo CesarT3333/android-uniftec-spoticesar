@@ -43,16 +43,16 @@ public class ImageRecyclerViewAdapter<T extends GenericEntity>
         this.detalheActivity = detalheActivity;
     }
 
+
     @Override
     public ImageItemViewHolder onCreateViewHolder(ViewGroup parent, int position) {
 
-        Context context = parent.getContext();
-        LayoutInflater inflater = LayoutInflater.from(context);
-        View itemView = inflater.inflate(R.layout.entity_menu_item, parent,
-                false);
+        View viewCriada = LayoutInflater.from(context)
+                .inflate(R.layout.entity_menu_item, parent, false);
 
-        return new ImageItemViewHolder(itemView);
+        viewCriada.setOnClickListener(this);
 
+        return new ImageItemViewHolder(viewCriada);
     }
 
     @Override
@@ -62,8 +62,6 @@ public class ImageRecyclerViewAdapter<T extends GenericEntity>
                 this.entitys.get(position);
 
         this.positionEntity = position;
-
-        holder.parentLayout.setOnClickListener(this);
 
         holder.populaEntidade(entity, context);
 
@@ -116,6 +114,7 @@ public class ImageRecyclerViewAdapter<T extends GenericEntity>
                     .into(imagemAlbum);
 
             this.entityToString.setText(entity.toString());
+
         }
 
     }
